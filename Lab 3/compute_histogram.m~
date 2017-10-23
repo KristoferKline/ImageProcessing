@@ -1,6 +1,7 @@
 function histogram = compute_histogram(image)
 % compute_histogram     Takes a grayscale image and returns an array of
-%                       intensity frequency within the range of UINT8.
+%                       intensity frequency within the range of UINT8. Also
+%                       known as the Probability Mass Function.
 %
 % Syntax:    
 %   histogram = compute_histogram([UINT8]);
@@ -9,20 +10,25 @@ function histogram = compute_histogram(image)
 % image                 An array of UINT8 representing intensity levels of
 %                       a grayscale image.
 
+% Initialize dimensions of the image.
 width = size(image,2);
 height = size(image,1);
 
-frequency = zeros(256, 'double');
+% Optimization: Initialize the histogram for space allocation.
+histogram = zeros(256,1,'double');
+
+% Iterate through the image, inrementing the corresponding count.
 for w = 1:width
     for h = 1:height
         intensity = image(w * h) + 1;
-        frequency(intensity) = frequency(intensity) + 1;
+        histogram(intensity) = histogram(intensity) + 1;
     end
 end
 
-frequency/(width * height);
-frequency(5)
+% Iterat
+for i = 1:256
+    histogram(i) = histogram(i) / (width * height);
+end
 
-histogram = frequency;
 end
 
