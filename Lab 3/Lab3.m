@@ -25,6 +25,7 @@ transformation = histogram_transform(histogram);
 
 % Equalize the image.
 equalized = equalize(image,transformation);
+imshow(equalized);
 
 % Compue the histogram of the equalized image and plot it.
 equalizedHistogram = compute_histogram(equalized);

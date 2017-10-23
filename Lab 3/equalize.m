@@ -16,9 +16,10 @@ function equalized = equalize(image, transformation)
 width = size(image,2);
 height = size(image,1);
 
-% Print out initial mean and standard deviation.
-mean(image)
-std(image)
+% Print out image mean and standard deviation.
+imageVector = double(image(:));
+imageMean = mean(imageVector)
+imageSTD = std(imageVector)
 
 % Optimization: Initialize using known dimensions.
 equalized = zeros(height, width, 'uint8');
@@ -32,8 +33,9 @@ for w = 1:width
     end
 end
 
-%Print out equalized mean and standard deviation.
-mean(equalized)
-std(equalized)
+% Print out equalized mean and standard deviation.
+equalizedVector = double(equalized(:));
+equalizedMean = mean(equalizedVector)
+equalizedSTD = std(equalizedVector)
 
 end
