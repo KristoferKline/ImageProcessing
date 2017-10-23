@@ -1,0 +1,28 @@
+function histogram = compute_histogram(image)
+% compute_histogram     Takes a grayscale image and returns an array of
+%                       intensity frequency within the range of UINT8.
+%
+% Syntax:    
+%   histogram = compute_histogram([UINT8]);
+%
+% Input:
+% image                 An array of UINT8 representing intensity levels of
+%                       a grayscale image.
+
+width = size(image,2);
+height = size(image,1);
+
+frequency = zeros(256, 'double');
+for w = 1:width
+    for h = 1:height
+        intensity = image(w * h) + 1;
+        frequency(intensity) = frequency(intensity) + 1;
+    end
+end
+
+frequency/(width * height);
+frequency(5)
+
+histogram = frequency;
+end
+
