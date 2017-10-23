@@ -1,0 +1,10 @@
+image = imread('Lab_03_image1_dark.tif');
+
+histogram = compute_histogram(image);
+% plot_histogram(histogram);
+
+transformation = histogram_transform(histogram);
+bar(transformation);
+
+%result = unique(transformation)
+%bar(result)
