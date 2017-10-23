@@ -1,0 +1,26 @@
+function resizedImage = myneighbor(newWidth, newHeight, image)
+%MYIMNEIGHBOR Summary of this function goes here
+%   Detailed explanation goes here
+
+%40 x 75
+% 300 / 40 -> 7.5
+% 300 / 74 -> 4.0
+
+imageWidth = width(image);
+imageHeight = height(image);
+widthRatio = imageWidth / newWidth;
+heightRatio = imageHeight / newHeight;
+
+resizedImage = zeros(width, height);
+for width = 1:newWidth
+    for height = 1:newHeight
+        nearestWidth = round(width * widthRatio, uint);
+        nearestHeight = round(height * heightRatio, uint);
+        
+        
+    end
+end
+
+
+end
+

@@ -1,0 +1,16 @@
+image = imread('Lab_02_image1.tif')
+
+% Part C: Downsample & Upsample
+neighborDownsample = myimresize(image, 40, 75, 'neighbor');
+bilinearDownsample = myimresize(image, 40, 75, 'bilinear');
+neighborUpsample = myimresize(image, 425, 600, 'neighbor');
+bilinearUpsample = myimresize(image, 425, 600, 'bilinear');
+
+% Part D: Resize
+resizeSmallNeighbor = myimresize(neighborDownsample, 300, 300, 'neighbor');
+resizeSmallBilinear = myimresize(bilinearDownsample, 300, 300, 'bilinear');
+resizeBigNeighbor = myimresize(neighborUpsample, 300, 300, 'neighbor');
+resizeBigBilinear = myimresize(bilinearUpsample, 300, 300, 'bilinear');
+
+% Part E: 
+imshow(resizedImage)

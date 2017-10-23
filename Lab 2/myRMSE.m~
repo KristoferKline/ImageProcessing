@@ -1,0 +1,22 @@
+function RMSE = myRMSE(image, image2)
+%MYRMSE Summary of this function goes here
+%   Detailed explanation goes here
+
+imageWidth = size(image, 2);
+imageHeight = size(image, 1);
+
+summation = double(0);
+for w = 1:imageWidth
+    for h = 1:imageHeight
+        intensity = image(h, w);
+        intensity2 = image(h, w);
+        difference = intensity - intensity2;
+        
+        summation = summation + power(difference,2);
+    end
+end
+
+summation / imageWidth * ima
+
+end
+
