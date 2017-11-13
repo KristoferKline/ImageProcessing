@@ -14,7 +14,7 @@
 %   - Lab_03_image2_light.tif
 
 % Read input into a matrix.
-image = imread('Lab_03_image1_dark.tif');
+image = imread('Lab_03_image2_light.tif');
 
 % Compute histogram and plot it.
 histogram = compute_histogram(image);
