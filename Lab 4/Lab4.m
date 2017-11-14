@@ -11,7 +11,21 @@
 
 image = imread('watertower.tif');
 
-identity = [0 0 0; 0 1 0; 0 0 0];
-result = spatial_filter(image, identity);
+%identity = [0 0 0; 0 1 0; 0 0 0];
+%result = spatial_filter(image, identity);
 
-imshow(result);
+figure
+edges = find_edges(image, 20.0);
+imshow(edges);
+
+figure
+edges = find_edges(image, 40.);
+imshow(edges);
+
+figure
+edges = find_edges(image, 60.);
+imshow(edges);
+
+figure
+edges = find_edges(image, 80.);
+imshow(edges);

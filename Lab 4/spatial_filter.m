@@ -1,16 +1,29 @@
 function result_image = spatial_filter(image, filter)
-%SPATIAL_FILTER Summary of this function goes here
-%   Detailed explanation goes here
+% SPATIAL_FILTER        Applies a filter onto an image and returns the
+%                       result.
+%                       
+% Syntax:
+% result_image = spatial_filter(image, filter)
+%
+% Input:
+% image                 A matrix representing the grayscale values of an 
+%                       image.
+%
+% filter                A matrix representing the desired filter.
 
+
+% Initialize local variables
 filterWidth = size(filter,2);
 filterRange = floor(size(filter,1)/2);
-
 [imageHeight, imageWidth] = size(image);
-%imageWidth = size(image,2);
-%imageHeight = size(image,1);
 
+% Add padding around the image equivalent to the filter range.
 padded = padarray(image,[filterRange filterRange], 'both');
-result_image = zeros(imageHeight, imageWidth, 'uint8');
+
+% Initialize the result_image to zeros
+result_image = zeros(imageHeight, imageWidth, 'double');
+
+% Iterate through the padded image, placing the result into result_image
 for w = 1:imageWidth
     for h = 1:imageHeight
         

@@ -1,11 +1,22 @@
 function gradient = gradient_magnitude(image)
-%GRADIENT_MAGNITUDE Summary of this function goes here
-%   Detailed explanation goes here
+% GRADIENT_MAGNITUDE            Calculates the magnitude of an image by
+%                               applying sobel masks and combining them.
+%             
+% Syntax:
+% gradient = gradient_magnitude(image)
+%
+% Input:
+% image                         A matrix representing the grayscale values
+%                               of an image.
 
-sobelRowFilter = [-1 -2 -1, 0 0 0, 1 2 1];
-sobelColumnFilter = [-1 0 1, -2 0 2, -1 0 1];
+% Calculate the partial derivative with respect to x
+sobelRowFilter = [-1 -2 -1; 0 0 0; 1 2 1];
+gx = spatial_filter(image, sobelRowFilter);
 
-rowFiltered = spatial_filter(image, sobelRowFilter);
-columnFiltered = spatial_filter(image, sobelColumnFilter);
+% Calculate the partial derivative with respect to y
+sobelColumnFilter = [-1 0 1; -2 0 2; -1 0 1];
+gy = spatial_filter(image, sobelColumnFilter);
+
+gradient = sqrt(gx.^2 + gy.^2);
+
 end
-
